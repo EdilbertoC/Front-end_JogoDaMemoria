@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: #ffffffcc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background: #333;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transform: perspective(600px) rotateY(0);
+    transition: transform 0.5s;
+}
+
+.card.flipped {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.card.flipped .front {
+    transform: rotateY(0);
+}
+.card.flipped .back {
+    transform: rotateY(180deg);
+}
+
+.card .front {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em; /* Tamanho maior para os emojis */
+    transform: rotateY(180deg);
+}
+
+.card .back {
+    background: #555;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+#reset-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#reset-btn:hover {
+    background: #2980b9;
+}
+
+#attempts-history {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
